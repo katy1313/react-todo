@@ -1,18 +1,11 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import TodoListItem from "./TodoListItem";
 
-let todoList = [
-    {"id": 111, "title": "Complete assignment"},
-    {"id": 112, "title": "Submit assignment"},
-    {"id": 113, "title": "Attend mentor session"}
-  ];
-
-function TodoList(){
-    return(
+function TodoList(props){
+    return(       
         <ul>
-            {todoList.map(({id, title}) => (<li key={id}>{title}</li>))}           
-        </ul>)
+             {props.list.map((item) => (<TodoListItem key={item.id} item={item} />))}       
+        </ul>
+    )    
 }
 
 export default TodoList;

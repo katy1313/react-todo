@@ -6,11 +6,17 @@ import TodoList from './ToDoList'
 import AddTodoForm from './AddTodoForm';
 
 function App() {
+  const todoList = [
+    {"id": 111, "title": "Complete assignment"},
+    {"id": 112, "title": "Submit assignment"},
+    {"id": 113, "title": "Attend mentor session"}
+  ];
+
   return (
     <div>
       <h1>ToDo List</h1>
       <AddTodoForm/>
-      <TodoList/>
+      <TodoList list={todoList} title="React" />
     </div> );
 }
 

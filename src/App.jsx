@@ -4,20 +4,18 @@ import TodoList from './ToDoList'
 import AddTodoForm from './AddTodoForm';
 
 function App() {
-  const todoList = [
-    {"id": 111, "title": "Complete assignment"},
-    {"id": 112, "title": "Submit assignment"},
-    {"id": 113, "title": "Attend mentor session"}
-  ];
 
-  const [newTodo, setNewTodo] = React.useState('');
+  const [todoList, setTodoList] = React.useState([]);//Creating new state variable named todoList with setter setTodoList and default value of an empty Array
+
+  function addTodo(newTodo) {
+    setTodoList([...todoList, newTodo]); //update todoList to include newTodo along with existing items
+  }
 
   return (
     <div>
       <h1>ToDo List</h1>
-      <AddTodoForm onAddTodo={setNewTodo}/>
-      <p>{newTodo}</p>
-      <TodoList list={todoList} />
+      <AddTodoForm onAddTodo={addTodo}/>
+      <TodoList list={todoList} todoList={todoList} setTodoList={setTodoList} />
     </div> );
 }
 

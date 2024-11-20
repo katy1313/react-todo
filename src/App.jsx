@@ -7,6 +7,7 @@ function App() {
 
   const [todoList, setTodoList] = React.useState([]);//Creating new state variable named todoList with setter setTodoList and default value of an empty Array
 
+  // /** Callback function that takes the handler from component AddTodoForm */
   function addTodo(newTodo) {
     setTodoList([...todoList, newTodo]); //update todoList to include newTodo along with existing items
   }

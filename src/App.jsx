@@ -4,7 +4,7 @@ import TodoList from './ToDoList'
 import AddTodoForm from './AddTodoForm';
 
 function useSemiPersistentState() {
-  const [todoList, setTodoList] = React.useState(JSON.parse(localStorage.getItem('savedTodoList'))); //Reading the data from local storage when application rerenders
+  const [todoList, setTodoList] = React.useState(JSON.parse(localStorage.getItem('savedTodoList')) || [] ); //Reading the data from local storage when application rerenders
 
   React.useEffect(() => {
     localStorage.setItem('savedTodoList', JSON.stringify(todoList)); //Converting Object to a string before saving in localStorage

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import './App.css'
 import TodoList from './ToDoList'
 import AddTodoForm from './AddTodoForm';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [todoList, setTodoList] = React.useState(JSON.parse(localStorage.getItem('savedTodoList')) || [] ); //Reading the data from local storage when application rerenders
@@ -63,20 +64,40 @@ function App() {
     setTodoList(newTodoList);
   };
 
-
   return (
-    <Fragment>
-      <h1>ToDo List</h1>
-      <AddTodoForm onAddTodo={addTodo}/>
-      {isLoading ? (
-        <p>Loading ...</p>
-      ) : (
-        <TodoList list={todoList} todoList={todoList} setTodoList={setTodoList} onRemoveTodo={removeTodo}/>
-      )}
-      
-      <hr></hr>
-    </Fragment> );
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Fragment>
+              <h1>ToDo List</h1>
+              <AddTodoForm onAddTodo={addTodo} />
+              {isLoading ? (
+                <p>Loading ...</p>
+              ) : (
+                <TodoList
+                  list={todoList}
+                  todoList={todoList}
+                  setTodoList={setTodoList}
+                  onRemoveTodo={removeTodo}
+                />
+              )}
+              <hr />
+            </Fragment>
+          }
+        />
+        <Route
+          path="/new"
+          element={
+            <div>
+              <h1>New Todo List</h1>
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );    
 }
-
 
 export default App;

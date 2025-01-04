@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import './App.css'
-import TodoList from './ToDoList'
-import AddTodoForm from './AddTodoForm';
+import TodoList from './components/TodoList/ToDoList'
+import AddTodoForm from './components/TodoForm/AddTodoForm';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -83,7 +83,6 @@ function App() {
                   onRemoveTodo={removeTodo}
                 />
               )}
-              <hr />
             </Fragment>
           }
         />

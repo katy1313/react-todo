@@ -1,0 +1,28 @@
+/* Mobile style */
+
+.newTodo {
+    color: rgb(65, 64, 64);
+    background-color: #f6f4f4;
+    margin: auto;
+    text-align: left;
+    min-width: 50%;
+    position: relative;
+    padding: .4em .4em .4em 2em;
+    border-radius: .3em;
+    line-height: 1.5em;
+}
+
+/* Tablet style */
+@media (min-width: 600px) and (max-width: 1200px) {
+    .newTodo {
+        width: 60%;
+    }
+}
+
+
+/* Desktop style */
+@media (min-width: 1200px) {
+    .newTodo {
+        width: 60%;
+    }
+}

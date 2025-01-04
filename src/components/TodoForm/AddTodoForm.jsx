@@ -1,5 +1,6 @@
 import React from 'react';
-import InputWithLabel from './InputWithLabel';
+import InputWithLabel from '../InputWithLabel/InputWithLabel';
+import styles from './AddTodoForm.module.css';
 
 function AddTodoForm({onAddTodo}) {
 
@@ -50,9 +51,9 @@ function AddTodoForm({onAddTodo}) {
         setTodoTitle(''); //resetting the input field to have an empty string after form submit
     }    
     return (
-        <form onSubmit={handleAddTodo}>
-            <InputWithLabel value={todoTitle} onChange={handleTitleChange}>Title: </InputWithLabel>
-            <button type='submit'>Add</button>
+        <form className={['form']} onSubmit={handleAddTodo}>
+            <InputWithLabel value={todoTitle} onChange={handleTitleChange}><strong>Title:</strong> </InputWithLabel>
+            <button className={styles['submit_button']} type='submit'>Add</button>
         </form>
     );
     

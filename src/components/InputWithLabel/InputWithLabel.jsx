@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import styles from './InputWithLabel.module.css';
 
 function InputWithLabel({value, onChange, children}) {
     const inputRef = React.useRef();
@@ -9,7 +10,7 @@ function InputWithLabel({value, onChange, children}) {
     return(
         <Fragment>
             <label htmlFor="todoTitle">{children}</label>
-             <input id='todoTitle' name='title' value={value} onChange={onChange} ref={inputRef}></input>
+             <input className={styles['newTodo']} id='todoTitle' name='title' value={value} onChange={onChange} ref={inputRef}></input>
         </Fragment>
         
     )

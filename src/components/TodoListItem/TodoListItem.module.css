@@ -1,0 +1,64 @@
+/* Mobile style */
+
+.list_item {
+    background-color: #8f8c8c;
+    color: white;
+    margin: 0.5em 0.5em auto auto;
+    text-align: left;
+    min-width: 70%;
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+}
+
+.list_item:before {    
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.21em;
+    background: #99d7ef;
+    height: 2.33em;
+    width: 2.33em;
+    line-height: 2.3em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;     
+}
+
+.remove_button {  
+    color: #434242;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5em;
+    font-size: 0.8rem;
+    margin-top: 1em;
+    margin-right: auto;
+    max-height: fit-content;
+  }
+
+  .remove_button:hover {
+    background-color: #9b9999;
+    color: white;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+/* Tablet style */
+@media (min-width: 600px) and (max-width: 1200px) {
+
+}
+
+
+/* Desktop style */
+@media (min-width: 1200px) {
+}

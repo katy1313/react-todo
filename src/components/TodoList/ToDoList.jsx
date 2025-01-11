@@ -1,5 +1,6 @@
 import TodoListItem from "../TodoListItem/TodoListItem";
-import styles from './TodoList.module.css'
+import styles from './TodoList.module.css';
+import PropTypes from 'prop-types';
 
 function TodoList({todoList, onRemoveTodo}){
     return(       
@@ -7,6 +8,11 @@ function TodoList({todoList, onRemoveTodo}){
              {todoList.map((item) => (<TodoListItem key={item.id} item={item} onRemoveTodo={onRemoveTodo}/>))}       
         </ol>
     )    
+}
+
+TodoList.propTypes = {
+    todoList: PropTypes.func,
+    onRemoveTodo: PropTypes.func
 }
 
 export default TodoList;

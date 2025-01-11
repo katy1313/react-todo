@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styles from './InputWithLabel.module.css';
+import PropTypes from 'prop-types';
 
 function InputWithLabel({value, onChange, children}) {
     const inputRef = React.useRef();
@@ -15,5 +16,10 @@ function InputWithLabel({value, onChange, children}) {
         
     )
 }
+InputWithLabel.propTypes = {
+    value: PropTypes.func,
+    onChange: PropTypes.func,
+    children: PropTypes.func
+  }
 
 export default InputWithLabel;

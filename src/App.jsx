@@ -8,7 +8,7 @@ function App() {
   const [todoList, setTodoList] = React.useState(JSON.parse(localStorage.getItem('savedTodoList')) || [] ); //Reading the data from local storage when application rerenders
   const [isLoading, setIsLoading] = React.useState(true);
   const [sort, setSort] = React.useState('asc');
-  const [sortedTodoList, setSortedTodoList] = React.useState([]);
+ const [sortedTodoList, setSortedTodoList] = React.useState([]);
 
   const fetchData = async() => {
     const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`;
@@ -68,7 +68,7 @@ function App() {
     
     console.log('Sorted Data:', sortedData);
     setSortedTodoList(sortedData);
-  }, [todoList, sort]);
+  }, [sort]);
 
   function addTodo(newTodo) {
     setTodoList([...todoList, newTodo]); //update todoList to include newTodo along with existing items
@@ -101,15 +101,14 @@ function App() {
               {isLoading ? (
                 <p>Loading ...</p>
               ) : (  
-                sortedTodoList.map((item) => <div key={item.id}>{item.title}</div>)
-                )}
+                 sortedTodoList.map((item) => <div key={item.id}>{item.title}</div>)
+              )}
                 <TodoList
                   list={todoList}
                   todoList={todoList}
                   setTodoList={setTodoList}
                   onRemoveTodo={removeTodo}
-                />
-              
+                />   
             </Fragment>
           }
         />

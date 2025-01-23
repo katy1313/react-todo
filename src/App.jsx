@@ -101,14 +101,12 @@ function App() {
               {isLoading ? (
                 <p>Loading ...</p>
               ) : (  
-                 sortedTodoList.map((item) => <div key={item.id}>{item.title}</div>)
-              )}
                 <TodoList
-                  list={todoList}
-                  todoList={todoList}
-                  setTodoList={setTodoList}
-                  onRemoveTodo={removeTodo}
-                />   
+                todoList={sortedTodoList}
+                setTodoList={setTodoList}
+                onRemoveTodo={removeTodo}
+              /> 
+              )}
             </Fragment>
           }
         />

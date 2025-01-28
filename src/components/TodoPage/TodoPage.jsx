@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 // import TodoList from './components/TodoList/ToDoList'
 // import AddTodoForm from './components/TodoForm/AddTodoForm';
-import TodoList from './TodoList/TodoList';
-import AddTodoForm from './TodoForm/AddTodoForm';
-import Search from './Search/Search';
+import TodoList from '../TodoList/ToDoList';
+import AddTodoForm from '../TodoForm/AddTodoForm';
+import Search from '../Search/Search';
 
 
 const TodosPage = () => {
@@ -71,7 +71,7 @@ const TodosPage = () => {
       
       console.log('Sorted Data:', sortedData);
       setSortedTodoList(sortedData);
-    }, [sort]);
+    }, [sort, todoList]);
   
     React.useEffect(() => {
       localStorage.setItem("search", searchTerm);
@@ -81,12 +81,36 @@ const TodosPage = () => {
       setTodoList([...todoList, newTodo]); //update todoList to include newTodo along with existing items
     }
   
-    function removeTodo(id) {
-      const newTodoList = todoList.filter(
-        (list) => id !== list.id
-      );
-      setTodoList(newTodoList);
+    // function removeTodo(id) {
+    //   const newTodoList = todoList.filter(
+    //     (list) => id !== list.id
+    //   );
+    //   setTodoList(newTodoList);
+    // };
+
+    
+    const removeTodo = async (id) => {
+      try {
+        const data = await fetch(
+          `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/Default/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+            }
+          }
+        );
+        
+        const newTodoList = todoList.filter((list) => list.id !== data.id);
+        setTodoList(newTodoList);
+      } catch (error) {
+        console.error(error); 
+        const newTodoList = todoList.filter((list) => list.id !== id);
+        setTodoList(newTodoList);
+      }
     };
+
     
     function handleToggle() {
       setSort(sort === 'asc' ? 'desc' : 'asc');
@@ -103,6 +127,7 @@ const TodosPage = () => {
 
   return (
     <Fragment>
+      <Search search={searchTerm} onSearch={handleSearch}/>
         <h1>ToDo List</h1>
         <AddTodoForm onAddTodo={addTodo} />
         <button onClick={handleToggle}>
@@ -113,13 +138,12 @@ const TodosPage = () => {
             <p>Loading ...</p>
         ) : (  
             <TodoList
-            todoList={sortedTodoList}
+            todoList={filteredItems}
             setTodoList={setTodoList}
-            items={filteredItems}
             onRemoveTodo={removeTodo}
         /> 
         )}
-        <Search search={searchTerm} onSearch={handleSearch}/>
+        
     </Fragment>
   )   
 };

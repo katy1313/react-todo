@@ -12,7 +12,7 @@ const HomePage = () => {
     <div>
       <h1>Home Page</h1>
       {/* Первый вариант перенаправления — использование Link для навигации через маршрут */}
-      {/* <Link to="/login">Go to Login</Link> */}
+      <Link to="/todos">Go to TodoList</Link>
 
       {/* Второй вариант перенаправления — использование кнопки с обработчиком события */}
       {/* <button onClick={handleGoToLogin}>Go to Login</button> */}

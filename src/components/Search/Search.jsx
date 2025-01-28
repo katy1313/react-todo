@@ -13,7 +13,6 @@ const Search = ({ search, onSearch }) => {
         onChange={handleChange} 
         value={search} 
       />
-      <p>I am searching for {search}</p> 
     </div>
   );
 };

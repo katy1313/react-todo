@@ -5,6 +5,54 @@
   text-align: center;
 }
 
+/* Стили для светлой темы */
+body[data-theme="light"] {
+  background-color: #e1dfdf;
+  color:#0c9bd3;
+}
+
+/* Стили для темной темы */
+body[data-theme="dark"] {
+  background-color: #333;
+  color:#0c9bd3;
+}
+
+/* Remove default button styles */
+.theme-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Adjust icon size */
+  transition: transform 0.2s ease-in-out;
+  position: fixed;
+}
+
+/* Add hover effect */
+.theme-button:hover {
+  transform: scale(1.1);
+}
+
+/* Light theme styles */
+body[data-theme="light"] .theme-button {
+  color: #333; /* Dark icon in light mode */
+}
+
+/* Dark theme styles */
+body[data-theme="dark"] .theme-button {
+  color: #ffd700; /* Yellow icon in dark mode */
+}
+
+/* Optional: Add a soft glow effect */
+body[data-theme="dark"] .theme-button:hover,
+body[data-theme="light"] .theme-button:hover {
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+
 /* Tablet style */
 @media (min-width: 600px) and (max-width: 1200px) {
   #root {

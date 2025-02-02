@@ -53,7 +53,7 @@ function AddTodoForm({onAddTodo}) {
     }    
     return (
         <form className={['form']} onSubmit={handleAddTodo}>
-            <InputWithLabel value={todoTitle} onChange={handleTitleChange}><strong>Title:</strong> </InputWithLabel>
+            <InputWithLabel value={todoTitle} onChange={handleTitleChange}><strong>Title</strong> </InputWithLabel>
             <button className={styles['submit_button']} type='submit'>Add</button>
         </form>
     );

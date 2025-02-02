@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
-// import TodoList from './components/TodoList/ToDoList'
-// import AddTodoForm from './components/TodoForm/AddTodoForm';
 import TodoList from '../TodoList/ToDoList';
 import AddTodoForm from '../TodoForm/AddTodoForm';
 import Search from '../Search/Search';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import  styles  from './TodoPage.module.css';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const TodosPage = () => {
@@ -127,11 +131,13 @@ const TodosPage = () => {
 
   return (
     <Fragment>
+      <Link to="/" className={styles["home-link"]}><FontAwesomeIcon icon={faHouse} /></Link>
       <Search search={searchTerm} onSearch={handleSearch}/>
-        <h1>ToDo List</h1>
+      
+        <h1>TO-DO LIST</h1>
         <AddTodoForm onAddTodo={addTodo} />
-        <button onClick={handleToggle}>
-            {sort === 'asc' ? 'Ascending' : 'Descending'}
+        <button onClick={handleToggle}>   
+            <FontAwesomeIcon icon={sort === 'asc' ? faArrowUp : faArrowDown} />         
         </button>
 
         {isLoading ? (

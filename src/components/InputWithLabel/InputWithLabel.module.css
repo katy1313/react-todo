@@ -9,7 +9,7 @@
     position: relative;
     padding: .4em .4em .4em 2em;
     border-radius: .3em;
-    line-height: 1.5em;
+    font-size: 0.9rem;
 }
 
 /* Tablet style */

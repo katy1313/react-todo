@@ -1,0 +1,25 @@
+.image {
+    width: 60rem;
+    height: 40rem;
+    margin: auto;
+}
+
+.todo-link {
+    color: blue;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+body[data-theme="dark"] .todo-link {
+    color: #00d9ff; 
+}
+
+body[data-theme="dark"] h1 {
+    color: #00d9ff; 
+}

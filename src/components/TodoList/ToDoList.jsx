@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 function TodoList({todoList, onRemoveTodo}){
     return(       
-        <ol className={styles['list']}>
+        <ol key={todoList.length} className={styles['list']}>
              {todoList.map((item) => (<TodoListItem key={item.id} item={item} onRemoveTodo={onRemoveTodo}/>))}       
         </ol>
     )    
-}
+} 
 
 TodoList.propTypes = {
     todoList: PropTypes.array,

@@ -39,7 +39,7 @@ body[data-theme="dark"] {
 
 /* Light theme styles */
 body[data-theme="light"] .theme-button {
-  color: #333; /* Dark icon in light mode */
+  color: #676565; /* Dark icon in light mode */
 }
 
 /* Dark theme styles */

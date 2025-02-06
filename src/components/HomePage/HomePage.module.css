@@ -1,0 +1,51 @@
+.image {
+    width: 30em;
+    height: 20em;
+    margin: auto;
+}
+
+.todo-link {
+    color: blue;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-top: 1em;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+body[data-theme="dark"] .todo-link {
+    color: #00d9ff; 
+}
+
+body[data-theme="dark"] h1 {
+    color: #00d9ff; 
+}
+
+/* Tablet style */
+@media (min-width: 600px) and (max-width: 1200px) {
+    .image {
+        width: 45em;
+        height: 30em;
+    }
+    .todo-link {
+        color: blue;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+}
+
+
+/* Desktop style */
+@media (min-width: 1200px) {
+    .image {
+        width: 60em;
+        height: 40em;
+    }
+    
+}
+
+

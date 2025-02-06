@@ -11,7 +11,7 @@ function InputWithLabel({value, onChange, children}) {
     return(
         <Fragment>
             <label htmlFor="todoTitle">{children}</label>
-             <input className={styles['newTodo']} id='todoTitle' name='title' value={value} onChange={onChange} 
+             <input className={styles['newTodo']} id='todoTitle' name='title' value={value} onChange={onChange}
             //  ref={inputRef}
             >
                 
@@ -20,10 +20,11 @@ function InputWithLabel({value, onChange, children}) {
         
     )
 }
+
 InputWithLabel.propTypes = {
-    value: PropTypes.func,
+    value: PropTypes.string,
     onChange: PropTypes.func,
-    children: PropTypes.func
-  }
+    children: PropTypes.array
+}
 
 export default InputWithLabel;

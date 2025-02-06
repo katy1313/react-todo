@@ -1,0 +1,10 @@
+.search_field {
+    width: 30%;
+    height: 1.7em;
+    border-radius: 3px;
+    padding: 0px 10px;
+    font-size: 0.9rem;
+    align-items: right;
+    margin-top: 3em;  
+    border: none;
+}

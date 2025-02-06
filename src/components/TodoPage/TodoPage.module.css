@@ -12,4 +12,24 @@
 
 .home-link:hover {
     color: #053df5;
+    transform: scale(1.1);
+}
+
+.sorting-button {
+    margin-top: 2em;
+    background: none;
+    border: 2px solid rgb(78, 79, 80);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 24px; /* Adjust icon size */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Add hover effect */
+button:hover {
+  transform: scale(1.1);
+}
+
+body[data-theme="dark"] .sorting-button {
+    color: #ffd700; /* Yellow icon in dark mode */
 }

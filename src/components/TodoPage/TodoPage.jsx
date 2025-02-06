@@ -8,6 +8,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import  styles  from './TodoPage.module.css';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import Spinner from "../Spinner/Spinner";
 
 
 const TodosPage = () => {
@@ -84,15 +85,31 @@ const TodosPage = () => {
     function addTodo(newTodo) {
       setTodoList([...todoList, newTodo]); //update todoList to include newTodo along with existing items
     }
-  
-    // function removeTodo(id) {
-    //   const newTodoList = todoList.filter(
-    //     (list) => id !== list.id
-    //   );
-    //   setTodoList(newTodoList);
-    // };
+
 
     
+    // const removeTodo = async (id) => {
+    //   try {
+    //     const data = await fetch(
+    //       `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/Default/${id}`,
+    //       {
+    //         method: "DELETE",
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+    //         }
+    //       }
+    //     );
+        
+    //     const newTodoList = todoList.filter((list) => list.id !== data.id);
+    //     setTodoList(newTodoList);
+    //   } catch (error) {
+    //     console.error(error); 
+    //     const newTodoList = todoList.filter((list) => list.id !== id);
+    //     setTodoList(newTodoList);
+    //   }
+    // };
+
     const removeTodo = async (id) => {
       try {
         const data = await fetch(
@@ -105,13 +122,13 @@ const TodosPage = () => {
             }
           }
         );
-        
-        const newTodoList = todoList.filter((list) => list.id !== data.id);
-        setTodoList(newTodoList);
+        if(data.status === 200){
+          const newTodoList = todoList.filter((list) => list.id !== id);
+          setTodoList(newTodoList);
+        }
+        console.log(data)
       } catch (error) {
         console.error(error); 
-        const newTodoList = todoList.filter((list) => list.id !== id);
-        setTodoList(newTodoList);
       }
     };
 
@@ -136,18 +153,21 @@ const TodosPage = () => {
       
         <h1>TO-DO LIST</h1>
         <AddTodoForm onAddTodo={addTodo} />
-        <button onClick={handleToggle}>   
+        {/* Sorting button only appears when loading is finished */}
+        {!isLoading && (
+          <button className={styles['sorting-button']} onClick={handleToggle}>   
             <FontAwesomeIcon icon={sort === 'asc' ? faArrowUp : faArrowDown} />         
-        </button>
+          </button>
+        )}
 
         {isLoading ? (
-            <p>Loading ...</p>
+            <Spinner/>
         ) : (  
-            <TodoList
+          <TodoList
             todoList={filteredItems}
             setTodoList={setTodoList}
             onRemoveTodo={removeTodo}
-        /> 
+          /> 
         )}
         
     </Fragment>

@@ -1,13 +1,14 @@
 .image {
-    width: 60rem;
-    height: 40rem;
+    width: 30em;
+    height: 20em;
     margin: auto;
 }
 
 .todo-link {
     color: blue;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
+    margin-top: 1em;
 }
 
 .home-page {
@@ -23,3 +24,28 @@ body[data-theme="dark"] .todo-link {
 body[data-theme="dark"] h1 {
     color: #00d9ff; 
 }
+
+/* Tablet style */
+@media (min-width: 600px) and (max-width: 1200px) {
+    .image {
+        width: 45em;
+        height: 30em;
+    }
+    .todo-link {
+        color: blue;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+}
+
+
+/* Desktop style */
+@media (min-width: 1200px) {
+    .image {
+        width: 60em;
+        height: 40em;
+    }
+    
+}
+
+

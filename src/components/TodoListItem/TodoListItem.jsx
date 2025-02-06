@@ -13,7 +13,7 @@ const TodoListItem = ({item, onRemoveTodo}) => {
 }
 
 TodoListItem.propTypes = {
-    item: PropTypes.func,
+    item: PropTypes.object,
     onRemoveTodo: PropTypes.func
 }
 

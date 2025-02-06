@@ -6,13 +6,14 @@ const Search = ({ search, onSearch }) => {
   };
   return (
     <div className={styles['search']}>
-      <label htmlFor="search"><strong>Search</strong> </label>
+      <label htmlFor="search"></label>
       <input className={styles['search_field']}
         id="search"
         type="text"
         name="searchTerm"
         onChange={handleChange} 
         value={search} 
+        placeholder='Search...'
       />
     </div>
   );

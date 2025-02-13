@@ -145,9 +145,10 @@ const TodosPage = () => {
 
   return (
     <Fragment>
-      <Link to="/" className={styles["home-link"]}><FontAwesomeIcon icon={faHouse} /></Link>
-      <Search search={searchTerm} onSearch={handleSearch}/>
-      
+      <div className={styles['navigation']}>
+        <Link to="/" className={styles["home-link"]}><FontAwesomeIcon icon={faHouse} /></Link>
+        <Search search={searchTerm} onSearch={handleSearch}/>
+      </div>    
         <h1>TO-DO LIST</h1>
         <AddTodoForm onAddTodo={postTodo} />
         {/* Sorting button only appears when loading is finished */}

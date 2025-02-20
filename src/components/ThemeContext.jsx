@@ -1,22 +1,22 @@
-import React from "react";
+import { useEffect, createContext, useContext, useState } from "react";
 
-// Создаем контекст для темы
-const ThemeContext = React.createContext();
+// Theme context creation
+const ThemeContext = createContext();
 
-// Хук для использования контекста
-export const useTheme = () => React.useContext(ThemeContext);
+// Context hook
+export const useTheme = () => useContext(ThemeContext);
 
-// Компонент для обертки приложения с темой
+// Component for handling theme
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = React.useState(false); // Состояние для переключения темы
+  const [isDark, setIsDark] = useState(false); // Состояние для переключения темы
 
-  // При изменении состояния темы, обновляем дата-атрибут на body
-  React.useEffect(() => {
+  // Adding data attribute to the body when theme state changed
+  useEffect(() => {
     document.body.setAttribute("data-theme", isDark ? "dark" : "light");
   }, [isDark]);
 
   const toggleTheme = () => {
-    setIsDark((prevTheme) => !prevTheme); // Переключение между темной и светлой темой
+    setIsDark((prevTheme) => !prevTheme); // Switching between light and dark themes
   };
 
   return (

@@ -1,4 +1,5 @@
 .list {
     counter-reset: li; /* Initiate a counter */
     list-style: none; /* Remove default numbering */
+    padding-left: 0%;
   }

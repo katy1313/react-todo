@@ -1,14 +1,8 @@
-// import React from "react";
 import { Link } from "react-router-dom";
 import notebook from './notebook2.jpg';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
-  //   const navigate = useNavigate(); // Получаем функцию для навигации
-
-  //   const handleGoToLogin = () => {
-  //     navigate("/login"); // Перенаправляем на страницу логина с помощью useNavigate
-  //   };
 
   return (
     <div className={styles['home-page']}>

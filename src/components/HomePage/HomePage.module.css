@@ -1,14 +1,28 @@
+/* Mobile style */
+
+h1 {
+    margin: 1.5em;
+    font-size: 2rem;
+}
+
 .image {
-    width: 30em;
-    height: 20em;
-    margin: auto;
+    width: 20em;
+    height: 13em;
+    margin: auto; 
 }
 
 .todo-link {
-    color: blue;
-    font-size: 1.5rem;
+    color: rgb(2, 111, 201);
+    font-size: 1rem;
     font-weight: bolder;
-    margin-top: 1em;
+    margin-top: 2em;
+    padding: 0.5em;
+    text-decoration: none;
+    background-color: rgb(164, 200, 229);
+}
+
+.todo-link:hover {
+    color: #053df5;
 }
 
 .home-page {
@@ -19,6 +33,7 @@
 
 body[data-theme="dark"] .todo-link {
     color: #00d9ff; 
+    background-color: rgb(123, 123, 123);
 }
 
 body[data-theme="dark"] h1 {
@@ -26,18 +41,23 @@ body[data-theme="dark"] h1 {
 }
 
 /* Tablet style */
-@media (min-width: 600px) and (max-width: 1200px) {
+@media (min-width: 400px) and (max-width: 1300px) {
     .image {
         width: 45em;
         height: 30em;
     }
+
     .todo-link {
-        color: blue;
+        color: rgb(2, 111, 201);
         font-size: 2rem;
         font-weight: bolder;
+        margin: 2em 3.7em;
+    }
+
+    h1 {
+        font-size: 3rem;
     }
 }
-
 
 /* Desktop style */
 @media (min-width: 1200px) {
@@ -45,7 +65,16 @@ body[data-theme="dark"] h1 {
         width: 60em;
         height: 40em;
     }
+
+    h1 {
+        font-size: 3rem;
+    }
     
+    .todo-link {
+        color: rgb(2, 111, 201);
+        font-size: 2rem;
+        font-weight: bolder;
+    }
 }
 
 

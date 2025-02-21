@@ -40,6 +40,10 @@ body[data-theme="dark"] h1 {
     color: #00d9ff; 
 }
 
+body[data-theme="dark"] .todo-link:hover {
+    color: #053df5;
+}
+
 /* Tablet style */
 @media (min-width: 400px) and (max-width: 1300px) {
     .image {
